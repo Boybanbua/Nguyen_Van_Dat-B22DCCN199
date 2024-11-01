@@ -25,14 +25,3 @@ merged_df = pd.concat([all_stats, team_stats], ignore_index=True)
 
 # Lưu kết quả vào file CSV
 merged_df.to_csv('D:/results2.csv')
-
-
-
-
-
-
-
-
-
-    
-
