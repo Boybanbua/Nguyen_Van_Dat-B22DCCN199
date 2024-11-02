@@ -13,5 +13,10 @@ team_means = df.groupby('Team')[colum].mean()
 # Tìm đội có điểm số cao nhất cho mỗi chỉ số
 top_teams = team_means.idxmax()
 
-print("Đội có điểm số cao nhất ở mỗi chỉ số:")
-top_teams.to_csv('D:/top_teams_test.csv', header=True)
+highest_counts = (team_means == team_means.max()).sum(axis=1)
+
+# Tìm đội có nhiều chỉ số cao nhất
+max_highest_count_team = highest_counts.idxmax()
+max_count = highest_counts.max()
+
+print(f"Đội có nhiều chỉ số cao nhất là: {max_highest_count_team} với {max_count} chỉ số.")

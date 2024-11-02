@@ -453,6 +453,7 @@ sorted_df = merged_df.sort_values(by=['First Name', 'Age'], ascending=[True, Fal
 
 # Xóa cột 'First Name'
 sorted_df = sorted_df.drop(columns=['First Name'])
-
+# Điền các giá trị rỗng là N/a
+sorted_df = sorted_df.fillna("N/a")
 # Ghi DataFrame đã sắp xếp vào tệp results CSV
 sorted_df.to_csv('D:/results.csv', index=False, encoding='utf-8')
