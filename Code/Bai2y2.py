@@ -9,14 +9,15 @@ for col in colum:
 
 # Tính toán cho toàn giải đấu
 all_stats = pd.DataFrame(
-    {f'Median of {col}': [df[col].median()] for col in colum}|
-    {f'Mean of {col}': [df[col].mean()] for col in colum}|
-    {f'Std of {col}': [df[col].std()] for col in colum}
+    {f'Median of {col}': [round(df[col].median(), 2)] for col in colum}|
+    {f'Mean of {col}': [round(df[col].mean(), 2)] for col in colum}|
+    {f'Std of {col}': [round(df[col].std(), 2)] for col in colum}
     )
 all_stats.insert(0, 'Team', 'all')
 
 # Tính toán cho từng đội
 team_stats = df.groupby('Team')[colum].agg(['median', 'mean', 'std']).reset_index()
+team_stats = team_stats.round(2)
 
 team_stats.columns = ['Team'] + [f'{stat.capitalize()} of {col}' for col in colum for stat in ['median', 'std', 'mean']]
 
