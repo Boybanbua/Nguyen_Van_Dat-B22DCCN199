@@ -1,7 +1,6 @@
 import pandas as pd
 
 df = pd.read_csv('D:/results.csv')
-# Vẽ histogram cho toàn giải đấu
 
 colum = [col for col in df.columns if col not in ['Player', 'Nation', 'Team', 'Pos', 'Age']]
 for col in colum:
